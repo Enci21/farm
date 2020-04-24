@@ -1,7 +1,6 @@
 import plant.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -19,24 +18,31 @@ public class Farm {
 
         private List<Plant> plants = new ArrayList();
         private Month month = new Month();
+        private int sprucCounter;
+        private int juniperCounter;
+        private int almondCounter;
+
 
         public FarmBuilder addSpruc(Spruc spruc) {
             plants.add(spruc);
+            sprucCounter++;
             return this;
         }
 
         public FarmBuilder addJuniper(Juniper juniper) {
             plants.add(juniper);
+            juniperCounter++;
             return this;
         }
 
         public FarmBuilder addAlmond(Almond almond) {
             plants.add(almond);
+            almondCounter++;
             return this;
         }
 
         public Farm build() throws RuntimeException {
-            if (Collections.frequency(plants, Almond.class) >= 2 && Collections.frequency(plants, Spruc.class) >= 2 && Collections.frequency(plants, Juniper.class) >= 2) {
+            if (juniperCounter >= 2 && almondCounter >= 2 && sprucCounter >= 2) {
                 return new Farm(month, plants);
             }
             throw new RuntimeException("At least 2 of every plant type needed!");
