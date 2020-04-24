@@ -17,7 +17,6 @@ public class Main {
         Almond almond = new Almond();
         Almond almond2 = new Almond();
         Farm farm = new Farm.FarmBuilder().addAlmond(almond).addAlmond(almond2).addJuniper(juniper).addJuniper(juniper2).addSpruc(spruc).addSpruc(spruc2).build();
-        farm.createPlants();
         for (int i = 0; i < 80; i++) {
             month.setMonthCounter(month.getMonthCounter() + 1);
             System.out.println("TOTAL FOOD PRODUCTION on the Farm after " + month.getMonthCounter() + " months: " + farm.countTotalFood());

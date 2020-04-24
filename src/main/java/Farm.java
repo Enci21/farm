@@ -49,23 +49,6 @@ public class Farm {
         }
     }
 
-    public void createPlants() {
-        if (random.nextInt(100) < 33) {
-            Almond almond = new Almond();
-            plants.add(almond);
-        }
-        if (random.nextInt(100) < 66) {
-            Juniper juniper = new Juniper(month);
-            plants.add(juniper);
-        } else {
-            Spruc spruc = new Spruc(month);
-            plants.add(spruc);
-        }
-        if(plants.size() < 9){
-            createPlants();
-        }
-    }
-
     public int countTotalFood() {
          int totalFoodProduced = 0;
         for (Plant p : plants){
